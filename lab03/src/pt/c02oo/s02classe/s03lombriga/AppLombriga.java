@@ -7,16 +7,13 @@ public class AppLombriga {
       Toolkit tk = Toolkit.start();
       
       String lombrigas[] = tk.recuperaLombrigas();
-      
-      for (int l = 0; l < lombrigas.length; l++)
-         System.out.println(lombrigas[l]);
-      
+            
       
       for (int i=0;i<lombrigas.length;i++) {
     	  //criamos uma nova animacao e uma nova lombriga com as condicoes dadas
     	 Animacao desenho = new Animacao(lombrigas[i]);
     	 AquarioLombriga lombriga = new AquarioLombriga (desenho.tamanhoAquario, desenho.tamanhoLombriga, desenho.posicaoCabeca);
-    	 //conectamos as duas classes e apresentamos a lombriga em suas condições iniciais
+    	 //conectamos as duas classes e apresentamos a lombriga em suas condiÃ§Ãµes iniciais
     	 desenho.conecta(lombriga);
     	 desenho.apresenta();
     	 tk.gravaPasso("=====");
