@@ -3,4 +3,4 @@
 
 ## Notebook 2 sobre estruturas
 
->[Notebook1](lab02-java-estruturas-ra247021.ipynb) 
+>[Notebook2](lab02-java-estruturas-ra247021.ipynb) 
