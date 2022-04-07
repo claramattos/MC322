@@ -1,5 +1,4 @@
-# Lab02 - Estruturas em Java
-
+# Lab02 - Do C para o Java
 
 ## Notebook 2 sobre estruturas
 
