@@ -33,67 +33,67 @@ public class AquarioLombriga {
         }
     }
     
-    public void crescer(AquarioLombriga lombriga) {
-        if (lombriga.esquerda == 1 && lombriga.posicaoRabo!=lombriga.tamanhoAquario) {
-            lombriga.aquario = lombriga.aquario.substring(0,lombriga.posicaoRabo) + "@" + lombriga.aquario.substring(lombriga.posicaoRabo+1);
-            lombriga.posicaoRabo +=1;
-            lombriga.tamanhoLombriga++;
+    public void crescer() {
+        if (esquerda == 1 && posicaoRabo!=tamanhoAquario) {
+            aquario = aquario.substring(0,posicaoRabo) + "@" + aquario.substring(posicaoRabo+1);
+            posicaoRabo +=1;
+            tamanhoLombriga++;
         }
-        else if (lombriga.esquerda == 0 && lombriga.posicaoRabo != 1) {
-            lombriga.aquario = lombriga.aquario.substring(0,lombriga.posicaoRabo-2) + "@" + lombriga.aquario.substring (lombriga.posicaoRabo-1);
-            lombriga.posicaoRabo -=1;
-            lombriga.tamanhoLombriga++;
+        else if (esquerda == 0 && posicaoRabo != 1) {
+            aquario = aquario.substring(0,posicaoRabo-2) + "@" + aquario.substring (posicaoRabo-1);
+            posicaoRabo -=1;
+            tamanhoLombriga++;
         }
     }
     
-    public void mover (AquarioLombriga lombriga) {
-        if (lombriga.esquerda == 0 && lombriga.posicaoCabeca != lombriga.tamanhoAquario) {
-            lombriga.aquario = "#" + lombriga.aquario.substring(0, lombriga.tamanhoAquario-1);
-            lombriga.posicaoCabeca +=1;
-            lombriga.posicaoRabo +=1;
+    public void mover () {
+        if (esquerda == 0 && posicaoCabeca != tamanhoAquario) {
+            aquario = "#" + aquario.substring(0, tamanhoAquario-1);
+            posicaoCabeca +=1;
+            posicaoRabo +=1;
         }
-        else if (lombriga.esquerda == 1 && lombriga.posicaoCabeca != 1) {
-            lombriga.aquario = lombriga.aquario.substring (1) + "#";
-            lombriga.posicaoCabeca -=1;
-            lombriga.posicaoRabo -=1;
+        else if (esquerda == 1 && posicaoCabeca != 1) {
+            aquario = aquario.substring (1) + "#";
+            posicaoCabeca -=1;
+            posicaoRabo -=1;
         }
-        else if (lombriga.esquerda == 0 && lombriga.posicaoCabeca == lombriga.tamanhoAquario) {
-            lombriga.aquario = lombriga.aquario.substring(0,lombriga.posicaoRabo-1) + "O" + lombriga.aquario.substring(lombriga.posicaoRabo-1, lombriga.posicaoCabeca-1) + "@";
-            int aux = lombriga.posicaoCabeca;
-            lombriga.posicaoCabeca = lombriga.posicaoRabo;
-            lombriga.posicaoRabo = aux;
-            lombriga.esquerda = 1;
+        else if (esquerda == 0 && posicaoCabeca == tamanhoAquario) {
+            aquario = aquario.substring(0,posicaoRabo-1) + "O" + aquario.substring(posicaoRabo-1, posicaoCabeca-1) + "@";
+            int aux = posicaoCabeca;
+            posicaoCabeca = posicaoRabo;
+            posicaoRabo = aux;
+            esquerda = 1;
             
         }
-        else if (lombriga.esquerda == 1 && lombriga.posicaoCabeca == 1) {
-            lombriga.aquario = lombriga.aquario.substring (1, lombriga.posicaoRabo) + "O" + lombriga.aquario.substring(lombriga.posicaoRabo);
-            int aux = lombriga.posicaoCabeca;
-            lombriga.posicaoCabeca = lombriga.posicaoRabo;
-            lombriga.posicaoRabo = aux;
-            lombriga.esquerda = 0;
+        else if (esquerda == 1 && posicaoCabeca == 1) {
+            aquario = aquario.substring (1, posicaoRabo) + "O" + aquario.substring(posicaoRabo);
+            int aux = posicaoCabeca;
+            posicaoCabeca = posicaoRabo;
+            posicaoRabo = aux;
+            esquerda = 0;
         }
     }
     
     
-    public void virar (AquarioLombriga lombriga) {
-        if (lombriga.esquerda == 0) {
-            lombriga.aquario = lombriga.aquario.substring(0, lombriga.posicaoRabo-1) + "O" + lombriga.aquario.substring(lombriga.posicaoRabo -1, lombriga.posicaoCabeca) + lombriga.aquario.substring(lombriga.posicaoCabeca+1);
-            int aux = lombriga.posicaoCabeca;
-            lombriga.posicaoCabeca = lombriga.posicaoRabo;
-            lombriga.posicaoRabo = aux;
-            lombriga.esquerda = 1;
+    public void virar () {
+        if (esquerda == 0) {
+            aquario = aquario.substring(0, posicaoRabo-1) + "O" + aquario.substring(posicaoRabo -1, posicaoCabeca) + aquario.substring(posicaoCabeca+1);
+            int aux = posicaoCabeca;
+            posicaoCabeca = posicaoRabo;
+            posicaoRabo = aux;
+            esquerda = 1;
         }
-        else if (lombriga.esquerda == 1) {
-            lombriga.aquario = lombriga.aquario.substring(0, lombriga.posicaoCabeca-1) + lombriga.aquario.substring (lombriga.posicaoCabeca, lombriga.posicaoRabo) + "O" + lombriga.aquario.substring(lombriga.posicaoRabo);
-            int aux = lombriga.posicaoCabeca;
-            lombriga.posicaoCabeca = lombriga.posicaoRabo;
-            lombriga.posicaoRabo = aux;
-            lombriga.esquerda = 0;
+        else if (esquerda == 1) {
+            aquario = aquario.substring(0, posicaoCabeca-1) + aquario.substring (posicaoCabeca, posicaoRabo) + "O" + aquario.substring(posicaoRabo);
+            int aux = posicaoCabeca;
+            posicaoCabeca = posicaoRabo;
+            posicaoRabo = aux;
+            esquerda = 0;
         }
     }
     
-    public String apresenta(AquarioLombriga lombriga) {
-        return lombriga.aquario;
+    public String apresenta() {
+        return aquario;
     } 
 }
 
